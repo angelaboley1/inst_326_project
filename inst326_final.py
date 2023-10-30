@@ -1,3 +1,8 @@
+"""Play a game of Uno."""
+
+import cards
+import random
+import sys
 
 class Player:
     def __init__(self, name):
@@ -12,3 +17,4 @@ class Player:
             print(f"{self.name} played {card}.")
         else:
             print(f"{self.name} does not have a {card}.")
+
