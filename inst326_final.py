@@ -21,3 +21,9 @@ class Player:
 class Computer:
     def __init(self, computer):
         self.computer = computer
+
+class Cards:
+    def __init__(self, color, number, wild):
+        self.color = color 
+        self.number = number 
+        self.wild = wild 
