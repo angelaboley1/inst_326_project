@@ -47,9 +47,9 @@ def deck_info(self):
    #i think this is how to shuffle the deck through the random function
 
 
-def discard_pile():
-    discard_pile = [ ]
-    for #playerturn in #turn function:
-        discard_pile.append[#card]
-    if len(discard_pile) == 112:
+#def discard_pile():
+    #iscard_pile = [ ]
+    #for #playerturn in #turn function:
+        #discard_pile.append[#card]
+    #if len(discard_pile) == 112:
         #reshuffle 
