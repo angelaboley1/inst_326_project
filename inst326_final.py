@@ -97,3 +97,14 @@ def print_ranks(list): #should use list returned by end_game func
     for player in list:
         place += 1
         print(f"{place}. {player[0]} with {player[1]} points")
+    
+# Angela Nov. 10th
+class GameState:
+    def __init__(self, players_name, players_cards, top_card, ):
+        self.players_names = players_name
+        self.players_card = players_cards
+        self.top_card = top_card
+    def __str__(self):
+        return f"{self.players_name} cards: {self.players_cards} \n
+                The top card is {self.top_card} \n 
+                {self.players_name}, it's your turn! What do you want to play?"
