@@ -27,3 +27,25 @@ class Cards:
         self.color = color 
         self.number = number 
         self.wild = wild 
+        
+#My Tran Nov 10 Update
+
+
+def can_play_card(hand, top_of_deck):
+    '''
+    checks if any card in hand can be played given the card on top of the deck
+    '''
+    for card in hand:
+        if card.color == top_of_deck.color:
+            return True
+        if card.rank == top_of_deck.rank:
+            return True
+        if "Wild" in card.rank:
+            return True
+        else:
+            return False
+        
+#a function about playing card
+    if can_play_card(hand, top_of_deck):
+    else:
+        raise ValueError("Player must draw a card")
