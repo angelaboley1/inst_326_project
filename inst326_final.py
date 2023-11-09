@@ -15,7 +15,9 @@ class GameState:
                 The top card is {self.top_card} \n 
                 {self.players_name}, it's your turn! What do you want to play?"
 
-class Player_turn:
+
+#Josie Nov.10th
+class PlayerTurn:
     def __init__(self, name, hand):
         self.name = name
         self.hand = hand
@@ -37,6 +39,7 @@ class Player_turn:
             return f"{self.name} played a {played_card}."
         else:
             raise ValueError("You can't play this card.")
+
             
 class Computer:
     def __init(self, computer):
