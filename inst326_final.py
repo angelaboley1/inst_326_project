@@ -48,3 +48,4 @@ def deck_info(self):
    #i think this is how to shuffle the deck through the random function
 
 
+ 
