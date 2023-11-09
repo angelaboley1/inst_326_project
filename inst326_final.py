@@ -4,10 +4,16 @@ import cards
 import random
 import sys
 
+#Angela Nov.10th
 class GameState:
-    def __init__(self):
-        self.number = None
-        self.color = None
+    def __init__(self, players_name, players_cards, top_card, ):
+        self.players_names = players_name
+        self.players_card = players_cards
+        self.top_card = top_card
+    def __str__(self):
+        return f"{self.players_name} cards: {self.players_cards} \n
+                The top card is {self.top_card} \n 
+                {self.players_name}, it's your turn! What do you want to play?"
 
 class Player_turn:
     def __init__(self, name, hand):
@@ -18,7 +24,6 @@ class Player_turn:
         hand = [card for card in self.hand]
         print(f"{self.name}, these are the cards in your hand: {hand}")
         
-        # create a gamestate class
         print(f"Gamestate: {state.card}")
 
         play_color = input("What color card do you want to play: ")
@@ -36,6 +41,7 @@ class Player_turn:
 class Computer:
     def __init(self, computer):
         self.computer = computer
+
 
 #Erin Nov.10th
 class Cards:
@@ -90,18 +96,6 @@ def can_play_card(hand, top_of_deck):
         ...
     else:
         raise ValueError("Player must draw a card")
-
-
-#Angela Nov.10th
-class GameState:
-    def __init__(self, players_name, players_cards, top_card, ):
-        self.players_names = players_name
-        self.players_card = players_cards
-        self.top_card = top_card
-    def __str__(self):
-        return f"{self.players_name} cards: {self.players_cards} \n
-                The top card is {self.top_card} \n 
-                {self.players_name}, it's your turn! What do you want to play?"
 
 
 #Katy Nov.10th
