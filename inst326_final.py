@@ -4,19 +4,34 @@ import cards
 import random
 import sys
 
-class Player:
-    def __init__(self, name):
-        self.name = name
-        self.hand = []
+class GameState:
+    def __init__(self):
+        self.number = None
+        self.color = None
 
-    def player_turn(self, card, game):
-        played_cards = [] 
-        if card in self.hand:
-            self.hand = [c for c in self.hand if c != card]
-            played_cards.append(card)
-            print(f"{self.name} played {card}.")
+class Player_turn:
+    def __init__(self, name, hand):
+        self.name = name
+        self.hand = hand
+
+    def player_turn(self, state):
+        hand = [card for card in self.hand]
+        print(f"{self.name}, these are the cards in your hand: {hand}")
+        
+        # create a gamestate class
+        print(f"Gamestate: {state.card}")
+
+        play_color = input("What color card do you want to play: ")
+        play_num = input("What number card do you want to play: ")
+        
+        played_card = f'{play_color} {play_num}'
+
+        if played_card in self.hand:
+            self.hand.remove(played_card)
+            state.card = played_card
+            return f"{self.name} played a {played_card}."
         else:
-            print(f"{self.name} does not have a {card}.")
+            raise ValueError("You can't play this card.")
             
 class Computer:
     def __init(self, computer):
