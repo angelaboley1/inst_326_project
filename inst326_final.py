@@ -95,17 +95,9 @@ def print_ranks(list): #should use list returned by end_game func
 
 
 #Josie Nov.10th        
-class Player_turn:
+class PlayerTurn:
     def __init__(self, name, hand):
         self.name = name
-        self.hand = []
-
-    def player_turn(self, card, game):
-        played_cards = [] 
-        if card in self.hand:
-            self.hand = [c for c in self.hand if c != card]
-            played_cards.append(card)
-            print(f"{self.name} played {card}.")
         self.hand = hand
 
     def player_turn(self, state):
@@ -123,5 +115,4 @@ class Player_turn:
             state.card = played_card
             return f"{self.name} played a {played_card}."
         else:
-            print(f"{self.name} does not have a {card}.")
             raise ValueError("You can't play this card.")
