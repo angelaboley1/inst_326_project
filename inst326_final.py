@@ -36,26 +36,22 @@ class Cards:
 
 
 
-#My Nov.10th
-def can_play_card(hand, top_of_deck):
+#My 
+def can_play_card(selected_card, top_of_discard):
     '''
     checks if any card in hand can be played given the card on top of the deck
     '''
-    for card in hand:
-        if card.color == top_of_deck.color:
+    Tcolor, Trank = top_of_discard.split(" ")
+    if "Wild" in selected_card:
+        return True
+    else:
+        Scolor, Srank = selected_card.split(" ")
+        if Scolor == Tcolor:
             return True
-        if card.rank == top_of_deck.rank:
-            return True
-        if "Wild" in card.rank:
+        elif Srank == Trank:
             return True
         else:
             return False
-
-#a function about playing card
-    if can_play_card(hand, top_of_deck):
-        ...
-    else:
-        raise ValueError("Player must draw a card")
 
 
 #Angela Nov.10th
