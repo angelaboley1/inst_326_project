@@ -64,6 +64,42 @@ discards.append(shuffled_deck.pop(0))
 turn= 0
 
 
+def play(turn, hands, discards):
+    while True:
+        print(f"It's now Player {turn + 1}'s turn!")
+        print(f"These are your cards:")
+        i = 1
+        for card in hands[turn]:
+            print(f"{i}. {card}")
+            i += 1
+        print("\n")
+        print(f"Top Card: {discards[-1]}")
+       
+        card_number = int(input("What card would you like to play? Select the card number."))
+        selected_card = (hands[turn])[card_number - 1]
+        print(selected_card)
+        if can_play_card(selected_card, discards[-1]) is True:
+            discards.append((hands[turn]).pop(card_number -1))
+            turn = (turn + 1) % num_players
+           
+play(turn, hands, discards)
+
+
+       
+#def special_cards(card):
+    #if "Reverse" in card:
+   
+    #elif "Skip" in card:
+       
+    #elif "Draw Two" in card:
+       
+    #elif "Wild Card" in card:
+       
+    #elif "Wild Draw Four" in card:
+
+
+
+
 #Katy Nov.10th
 #end_game func used sample dict:
 # player_hands = {
