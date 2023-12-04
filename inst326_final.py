@@ -7,26 +7,9 @@ import sys
 #Erin Nov.10th
 
 class Cards:
-    def __init__(self, color, number, wild):
-        self.color = color 
-        self.number = number 
-        self.wild = wild 
+    
+    
 
-    def deck_info(self):
-        color = ["Red", "Yellow", "Blue", "Green"]
-        type = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Reverse', 'Draw Two', 'Skip']
-        wild = ['Wild Card', 'Draw Four']
-        deck = []
-        for colors in color:
-            for types in type:
-                card_info = "{} {}".format(colors, types)
-                deck.append(card_info)
-            for i in range(4):
-                deck.append([wild[0]]) 
-        return deck
-
-    def shuffle_deck(deck):
-        random.shuffle_deck(deck)
 
 
 #My Nov.10th
