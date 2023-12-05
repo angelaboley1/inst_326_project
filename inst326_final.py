@@ -66,22 +66,46 @@ turn= 0
 
 def play(turn, hands, discards):
     while True:
-        print(f"It's now Player {turn + 1}'s turn!")
-        print(f"These are your cards:")
-        i = 1
-        for card in hands[turn]:
-            print(f"{i}. {card}")
-            i += 1
-        print("\n")
-        print(f"Top Card: {discards[-1]}")
-       
-        card_number = int(input("What card would you like to play? Select the card number."))
-        selected_card = (hands[turn])[card_number - 1]
-        print(selected_card)
-        if can_play_card(selected_card, discards[-1]) is True:
-            discards.append((hands[turn]).pop(card_number -1))
-            turn = (turn + 1) % num_players
+
+
+        if len(hands[turn]) == 0:
+            print(f"Player {turn + 1} won!")
+            print_ranks()
+            break
+
+
+        else:
+            print(f"It's now Player {turn + 1}'s turn!")
+            print(f"These are your cards:")
+            i = 1
+            for card in hands[turn]:
+                print(f"{i}. {card}")
+                i += 1
+            print("\n")
+            print(f"Top Card: {discards[-1]}")
            
+            try:
+                card_number = int(input("What card would you like to play? Select the card number."))
+            except:
+                print("Pick a number in the specified range.")
+           
+            selected_card = (hands[turn])[card_number - 1]
+            print(selected_card)
+            if can_play_card(selected_card, discards[-1]) is True:
+                discards.append((hands[turn]).pop(card_number -1))
+               
+                if len(hands[turn]) == 1:
+                    print("Uno!")
+                turn = (turn + 1) % num_players
+               
+            else:
+                print("Card cannot be played. Draw a card from the deck")
+                print(f"Drew a {shuffled_deck[0]}")
+                hands[turn].append(shuffled_deck.pop(0))
+                turn = (turn + 1) % num_players
+
+
+	            
 play(turn, hands, discards)
 
 
