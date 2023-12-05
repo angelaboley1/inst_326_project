@@ -1,8 +1,24 @@
 """Play a game of Uno."""
 
-import cards
 import random
 import sys
+
+card_points = {
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9,
+    'Draw 2': 20,
+    'Reverse': 20,
+    'Skip': 20,
+    'Wild': 50,
+    'Wild Draw 4': 50
+}
 
 #Erin Nov.10th
 class Cards:
@@ -47,6 +63,32 @@ def can_play_card(selected_card, top_of_discard):
         else:
             return False
 
+
+def end_game(dict):
+    """Calculates each player's final score."""
+    final_scores = {}
+    score = 0
+    for player in dict:
+        if len(dict[player]) >= 1:
+            for card in dict[player]:
+                color, value = card.split(" ")
+                score += int(card_points[value])
+        else:
+            score = 0
+        final_scores[player] = score
+    ranks = sorted(final_scores.items(), key= lambda c: c[1])
+    return ranks
+
+
+def print_ranks():
+    """Prints out player place and their final score."""
+    final_ranks = end_game(hands)
+    place = 0
+    for player in final_ranks:
+        place += 1
+        print(f"{place}. {player[0]} with {player[1]} points")
+
+
 hands = {}
 num_players = int(input("How many players? Please pick between 2-4."))
 while num_players < 2 or num_players > 4:
@@ -62,7 +104,6 @@ discards = []
 discards.append(shuffled_deck.pop(0))
 
 turn= 0
-
 
 def play(turn, hands, discards):
     while True:
@@ -120,38 +161,3 @@ play(turn, hands, discards)
     #elif "Wild Card" in card:
        
     #elif "Wild Draw Four" in card:
-
-
-
-
-#Katy Nov.10th
-#end_game func used sample dict:
-# player_hands = {
-#     "player1": ["2", "3", "7"],
-#     "player2": [],
-#     "player3": ["5", "9", "Skip"]
-#}
-
-# def end_game(dict):
-#     """Calculates each player's final score."""
-#     final_scores = {}
-#     score = 0
-#     for player in dict:
-#         if len(dict[player]) >= 1:
-#             for card in dict[player]:
-#                 score += int(cards.card_points[card])
-#         else:
-#             score = 0
-#         final_scores[player] = score
-#     ranks = sorted(final_scores.items(), key= lambda c: c[1])
-#     return ranks
-
-
-# def print_ranks(list): #should use list returned by end_game func
-#     """Prints out player place and their final score."""
-#     place = 0
-#     for player in list:
-#         place += 1
-#         print(f"{place}. {player[0]} with {player[1]} points")
-
-
