@@ -5,6 +5,7 @@ import random
 import sys
 
 #Erin Nov.10th
+
 class Cards:
     def __init__(self):
         self.deck = []
@@ -64,7 +65,6 @@ class GameState:
         self.players_names = players_name
         self.players_card = players_cards
         self.top_card = top_card
-        
     def __str__(self):
         return f"{self.players_name} cards: {self.players_cards} \n
                 The top card is {self.top_card} \n 
@@ -100,17 +100,25 @@ def print_ranks(list): #should use list returned by end_game func
     for player in list:
         place += 1
         print(f"{place}. {player[0]} with {player[1]} points")
-
-
-#Josie Nov.10th        
-class PlayerTurn:
+        
+class Player_turn:
     def __init__(self, name, hand):
         self.name = name
+        self.hand = []
+
+    def player_turn(self, card, game):
+        played_cards = [] 
+        if card in self.hand:
+            self.hand = [c for c in self.hand if c != card]
+            played_cards.append(card)
+            print(f"{self.name} played {card}.")
         self.hand = hand
 
     def player_turn(self, state):
         hand = [card for card in self.hand]
         print(f"{self.name}, these are the cards in your hand: {hand}")
+
+        # create a gamestate class
         print(f"Gamestate: {state.card}")
 
         play_color = input("What color card do you want to play: ")
@@ -123,4 +131,5 @@ class PlayerTurn:
             state.card = played_card
             return f"{self.name} played a {played_card}."
         else:
+            print(f"{self.name} does not have a {card}.")
             raise ValueError("You can't play this card.")
