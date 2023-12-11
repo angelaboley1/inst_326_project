@@ -109,14 +109,22 @@ def draw(shuffled_deck, discards, hands, turn, num_players=2):
    """
    print("You now have to draw from the deck.")
    if len(shuffled_deck) == 0:
-       top_deck = discards.pop(0)
-       random.shuffle(discards)
-       shuffled_deck=shuffled_deck.extend(discards)
-       discards.clear()
-       discards.append(top_deck)
-       print(f"Drew a {shuffled_deck[0]}")
-       hands[turn].append(shuffled_deck.pop(0))
-       turn = (turn + 1) % num_players
+        if len(discards) == 1:
+            cards = Cards()
+            deck = Deck()
+            unshuffled_deck = deck.deck_info()
+            new_shuffled_deck = deck.shuffle_deck()
+            shuffled_deck = shuffled_deck.extend(new_shuffled_deck)
+            print(shuffled_deck)
+        else:
+            top_deck = discards.pop(0)
+            random.shuffle(discards)
+            shuffled_deck=shuffled_deck.extend(discards)
+            discards.clear()
+            discards.append(top_deck)
+            print(f"Drew a {shuffled_deck[0]}")
+            hands[turn].append(shuffled_deck.pop(0))
+            turn = (turn + 1) % num_players
    else:
        print(f"Drew a {shuffled_deck[0]}")
        hands[turn].append(shuffled_deck.pop(0))
