@@ -4,7 +4,7 @@
 def __repr__(self):
        """Formal representation of the Deck.
 
-
+       
        Returns:
            str: a string containing the current cards in the deck.
        """
