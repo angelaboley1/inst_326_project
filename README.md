@@ -37,3 +37,6 @@
 | main | Josie Whittington |                        |
 | parse_args | Josie Whittington | ArgumentParser |
 
+## Annotated Bibliography
+“UNO! Rules.” Official Game Rules, https://www.officialgamerules.org/uno. Accessed 11 December 2023.
+	This source provided us with rules for the game Uno. We did adapt some of our own house rules. However, we used a lot of these rules to develop our code and create a working game. 
