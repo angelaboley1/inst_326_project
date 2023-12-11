@@ -7,11 +7,11 @@
 1. Open up a new VS code or Python terminal
     - Make sure your terminal is opened in the directory where your Python file is located
 2. In the command line, type in Python (Windows) or Python3 (Mac)
-3. Type in the file name ("inst326_final.py), how many players you want to play with (2-4),
+3. Type in the file name ("inst326_final.py"), how many players you want to play with (2-4),
     and an optional parameter (--num_cards #) and the number of cards for the 
     number of cards to be dealt to each player (defaults to 5)
-    - Example: python inst326_final.py 3 --num_cards 3
-    - Example: python3 inst326_final.py 4
+    - Example: `python inst326_final.py 3 --num_cards 3`
+    - Example: `python3 inst326_final.py 4`
 
 ## Instructions on how to use the program and interpret the output of the program:
 1. Uno rules: 
