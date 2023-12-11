@@ -60,10 +60,10 @@ class Deck(Cards):
         return self.deck
     
     def __repr__(self):
-        """Formal representation of the Deck.
+        """ A formal representation of the Deck.
         
         Returns:
-            str: the current cards in the deck.
+            str: the current Uno cards in the deck.
         """
         return f"Deck: {self.deck!r}"
 
