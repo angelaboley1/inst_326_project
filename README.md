@@ -8,7 +8,7 @@
     - Make sure your terminal is opened in the directory where your Python file is located
 2. In the command line, type in Python (Windows) or Python3 (Mac)
 3. Type in the file name ("inst326_final.py) and how many players you want to play with (2-4)
-    - example. python inst326_final.py 3
+    - Example: python inst326_final.py 3
 
 ## Instructions on how to use the program and interpret the output of the program:
 1. Uno rules: 
