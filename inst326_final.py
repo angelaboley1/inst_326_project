@@ -36,7 +36,7 @@ class Deck(Cards):
             Changes the value of the 'deck' attribute.
 
         Returns:
-            list: a list of the Uno cards.
+            list: the Uno cards.
         """
         for color in self.colors:
             for types in self.types:
@@ -54,7 +54,7 @@ class Deck(Cards):
             Changes the value of the 'deck' attribute.
 
         Returns:
-            list: a list of the shuffled cards.
+            list: the shuffled cards.
         """
         random.shuffle(self.deck)
         return self.deck
@@ -63,7 +63,7 @@ class Deck(Cards):
         """Formal representation of the Deck.
         
         Returns:
-            str: a string containing the current cards in the deck.
+            str: the current cards in the deck.
         """
         print(f"Deck: {self.deck}")
 
@@ -71,7 +71,7 @@ def end_game(hands):
     """Calculates each player's final score.
  
     Args:
-        hands (dict): a dictionary containing the players' number (key) and
+        hands (dict): the players' number (key) and
             their hand of cards (value, a list).
     
     Returns:
@@ -98,7 +98,7 @@ def draw(shuffled_deck, discards, hands, turn, num_players=2):
     
     Args:
         shuffled_deck (list): a shuffled deck of Uno cards.
-        hands (dict): a dictionary containing the players' number (key) and
+        hands (dict): the players' number (key) and
             their hand of cards (value, a list).
         turn (int): an index that represents whose turn it is.
         num_players (int): number of players.
@@ -185,9 +185,9 @@ def play(turn, hands, discards, direction, shuffled_deck, num_players):
     Args:
         turn (int):
         shuffled_deck (list): a shuffled deck of Uno cards.
-        hands (dict): a dictionary containing the players' number (key) and
+        hands (dict): the players' number (key) and
             their hand of cards (value, a list).
-        discards (list): list of cards in the discard pile.
+        discards (list): cards in the discard pile.
         direction (int): defines the direction the game moves among players.
         num_players (int): the number of players.
         
@@ -290,7 +290,7 @@ def main(num_players):
 def parse_args(arglist):
     """Parse and validate command-line arguments for Uno game.
     Args:
-        arglist (list of str): list of command-line arguments.
+        arglist (list of str): command-line arguments.
     Returns:
         namespace: parsed arguments.
     """
