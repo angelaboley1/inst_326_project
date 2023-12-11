@@ -27,7 +27,6 @@ class Cards:
 
         color = ["Red", "Yellow", "Blue", "Green"]
         type = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Reverse', 'Draw2', 'Skip']
-        #type = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
         wild = ['Wild Card', 'Wild Draw4']
         for colors in color:
             for types in type:
