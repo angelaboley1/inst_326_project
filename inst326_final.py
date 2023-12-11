@@ -1,48 +1,67 @@
 """Play a game of Uno."""
-
 import random
+import argparse
 import sys
 
-card_points = {
-    '1': 1,
-    '2': 2,
-    '3': 3,
-    '4': 4,
-    '5': 5,
-    '6': 6,
-    '7': 7,
-    '8': 8,
-    '9': 9,
-    'Draw 2': 20,
-    'Reverse': 20,
-    'Skip': 20,
-    'Wild': 50,
-    'Wild Draw 4': 50
-}
-
-#Erin Nov.10th
 
 class Cards:
+    """A class for making a deck of cards. """
     def __init__(self):
+        """Initializes a Cards object.
+       
+        Side effects:
+            Creates a 'deck' attribute.
+        """
         self.deck = []
 
+
     def deck_info(self):
+        """Creates an Uno deck.
+       
+        Side effects:
+            Changes the value of the 'deck' attribute.
+       
+        Returns:
+            list: a list of the Uno cards.
+        """
+
         color = ["Red", "Yellow", "Blue", "Green"]
-        #type = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Reverse', 'Draw Two', 'Skip']
-        type = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-        #wild = ['Wild Card', 'Wild Draw Four']
+        type = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Reverse', 'Draw2', 'Skip']
+        #type = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        wild = ['Wild Card', 'Wild Draw4']
         for colors in color:
             for types in type:
                 card_info = "{} {}".format(colors, types)
                 self.deck.append(card_info)
                 if type != 0:
                     self.deck.append(card_info)
-        #self.deck.extend(wild * 4)
+        self.deck.extend(wild * 4)
         return self.deck
 
+
     def shuffle_deck(self):
+        """Shuffles the deck of cards.
+       
+        Side effects:
+            Changes the value of the 'deck' attribute.
+           
+        Returns:
+            list: a list of the shuffled cards.
+        """
         random.shuffle(self.deck)
         return self.deck
+    def __repr__(self):
+        """ Formal representation of the Deck.
+
+
+       Returns:
+           str: A string containing the current order of cards in the deck.
+       """
+        print(f"Deck: {self.deck}")
+
+
+
+
     
 def deal(deck, num_cards=7):
     players_hand = [deck.pop(0) for i in range(num_cards)]
