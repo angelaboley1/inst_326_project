@@ -5,20 +5,20 @@
 
 ## Instructions on how to run:
 1. Open up a new VS code or Python terminal
-    - a. Make sure your terminal is opened in the directory where your Python file is located
+    - Make sure your terminal is opened in the directory where your Python file is located
 2. In the command line, type in Python (Windows) or Python3 (Mac)
 3. Type in the file name ("inst326_final.py) and how many players you want to play with (2-4)
-    - a. example. python inst326_final.py 3
+    - example. python inst326_final.py 3
 
 ## Instructions on how to use the program and interpret the output of the program:
 1. Uno rules: 
-    - a. Match and play cards based on number or color
-    - b. Keep drawing until you get a card that you can play
-    - c. Player who runs out of cards first wins! The players are ranked based on their number of cards at game end – lowest wins.
-    - d. Default number of cards dealt to each person is 7
+    - Match and play cards based on number or color
+    - Keep drawing until you get a card that you can play
+    - Player who runs out of cards first wins! The players are ranked based on their number of cards at game end – lowest wins.
+    - Default number of cards dealt to each person is 7
 2. Follow the instructions in the terminal
-    - a. Choose the card that you want to play based on your hand of cards
-    - b. If you don’t have a card that you can play, draw a card until you get one you can play
+    - Choose the card that you want to play based on your hand of cards
+    - If you don’t have a card that you can play, draw a card until you get one you can play
 3. Keep playing until someone runs out of cards!
 
 ## Attribution
