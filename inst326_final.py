@@ -84,8 +84,12 @@ def end_game(hands):
 def print_ranks(hands):
     """Prints out player place and their final score.
     
+    Args:
+        hands (dict): the players' number (key) and
+            their hand of cards (value, a list).      
+    
     Side effects:
-        Prints to stdout -- the players in rank order, based on their final scores.
+        Prints to stdout.
     """
     final_ranks = end_game(hands)
     place = 0
@@ -93,16 +97,16 @@ def print_ranks(hands):
         place += 1
         print(f"{place}. Player {player[0] + 1} with {player[1]} points")
 
-def draw(shuffled_deck, discards, hands, turn, num_players=2):
+def draw(shuffled_deck, discards, hands, turn, num_players):
     """Draws a card from the deck.
     
     Args:
         shuffled_deck (list): a shuffled deck of Uno cards.
+        discards (list): the cards in the discard pile.
         hands (dict): the players' number (key) and
             their hand of cards (value, a list).
         turn (int): an index that represents whose turn it is.
         num_players (int): number of players.
-        discards (list): the cards in the discard pile.
     
     Side effects:
         Prints to stdout.
@@ -162,10 +166,10 @@ def wildChoice(choices):
     """Player chooses which card they want to play when they have a wild card.
     
     Args:
-        choices (int): the four color options the player can choose from
+        choices (int): the four color options the player can choose from.
         
     Side effects:
-        Prints the options
+        Prints to stdout.
     """
     pattern = r"^[1-4]$"
     while True:
@@ -183,12 +187,12 @@ def play(turn, hands, discards, direction, shuffled_deck, num_players):
     """Player taking a turn.
  
     Args:
-        turn (int):
-        shuffled_deck (list): a shuffled deck of Uno cards.
+        turn (int): an index that represents whose turn it is.
         hands (dict): the players' number (key) and
             their hand of cards (value, a list).
         discards (list): cards in the discard pile.
         direction (int): defines the direction the game moves among players.
+        shuffled_deck (list): a shuffled deck of Uno cards.
         num_players (int): the number of players.
         
     Side effects:
@@ -263,7 +267,7 @@ def main(num_players):
         num_players (int): the number of players for the Uno game.
     
     Side effects:
-        Writes to stdout (see play() function).
+        Prints to stdout (see play() function).
     """
     while num_players < 2 or num_players > 4:
         num_players = int(input("Invalid. Please enter a number between 2-4. How many players? "))
@@ -289,8 +293,10 @@ def main(num_players):
 
 def parse_args(arglist):
     """Parse and validate command-line arguments for Uno game.
+    
     Args:
         arglist (list of str): command-line arguments.
+        
     Returns:
         namespace: parsed arguments.
     """
