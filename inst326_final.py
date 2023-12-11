@@ -285,7 +285,7 @@ def main(num_players):
     print("1. Match your cards based on color or number.")
     print("2. Use a standard Uno deck:")
     print()
-    print(repr(deck.deck))
+    print(repr(deck))
     print()
     print("3. If you can't play a card, draw until you get one you can play")
     print("4. Player who runs out of cards first wins!")
