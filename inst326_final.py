@@ -65,7 +65,7 @@ class Deck(Cards):
         Returns:
             str: the current cards in the deck.
         """
-        print(f"Deck: {self.deck}")
+        return f"Deck: {self.deck!r}"
 
 def end_game(hands):
     """Calculates each player's final score.
@@ -279,6 +279,19 @@ def main(num_players):
     unshuffled_deck = deck.deck_info()
     shuffled_deck = deck.shuffle_deck()
     hands = {}
+       
+    print("Let's play Uno!")
+    print("Before you begin, here's a brief overview of the rules:")
+    print("1. Match your cards based on color or number.")
+    print("2. Use a standard Uno deck:")
+    print()
+    print(repr(deck.deck))
+    print()
+    print("3. If you can't play a card, draw until you get one you can play")
+    print("4. Player who runs out of cards first wins!")
+    print("Good luck!")
+    print()
+    
  
     for player in range(num_players):
         hands[player]=deal(shuffled_deck, num_cards=5)
