@@ -224,7 +224,8 @@ def play(turn, hands, discards, direction, shuffled_deck, num_players):
                        turn = (turn + 2*direction) % num_players
                    elif "Draw2" in selected_card:
                        next_player = (turn + direction) % num_players
-                       hands[next_player].extend(deal(shuffled_deck, 2))
+                       for _ in range(2):
+                        draw(shuffled_deck, discards, hands, next_player, num_players)
                        discards.append((hands[turn]).pop(int(x) -1))
                    elif "Wild Card" in selected_card:
                        colors = {1:"Blue Wild", 2:"Red Wild", 3:"Green Wild", 4:"Yellow Wild"}
@@ -243,7 +244,8 @@ def play(turn, hands, discards, direction, shuffled_deck, num_players):
                        (hands[turn]).pop(int(x) -1)
                        discards.append(colors[int(t)])
                        next_player = (turn + direction) % num_players
-                       hands[next_player].extend(deal(shuffled_deck, 4))
+                       for _ in range(4):
+                        draw(shuffled_deck, discards, hands, next_player, num_players)
                    else:
                        discards.append((hands[turn]).pop(int(x) -1))
                  
