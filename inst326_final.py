@@ -296,7 +296,7 @@ def play(turn, hands, discards, direction, shuffled_deck, num_players):
                 else:
                     print("You can't play that card. Please pick another card or draw.")
   
-def main(num_players):
+def main(num_players, num_cards):
     """Runs the Uno game.
     
     Args:
@@ -330,7 +330,7 @@ def main(num_players):
     
  
     for player in range(num_players):
-        hands[player]=deal(shuffled_deck, num_cards=5)
+        hands[player]=deal(shuffled_deck, num_cards=num_cards)
         
     discards = []
     discards.append(shuffled_deck.pop(0))
@@ -350,10 +350,10 @@ def parse_args(arglist):
         namespace: parsed arguments.
     """
     parser = argparse.ArgumentParser(description='Play a game of Uno.')
-    parser.add_argument('num_players', type=int, choices=range(2, 5),
-                        help='Number of players (between 2 and 4)')
+    parser.add_argument('--num_cards', type=int, default=5,
+                        help='Number of cards to deal to each player (default: 5)')
     return parser.parse_args(arglist)
 
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
-    main(args.num_players)
+    main(args.num_players, args.num_cards)
