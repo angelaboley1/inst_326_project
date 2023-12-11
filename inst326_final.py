@@ -67,6 +67,42 @@ class Deck(Cards):
         """
         return f"Deck: {self.deck!r}"
 
+def deal(deck, num_cards=7):
+    """Deals each player a hand of cards.
+ 
+    Args:
+        deck (list): a deck of Uno cards.
+        num_cards (int): the number of cards to deal to each player.
+     
+    Returns:
+        list: list of cards in the player's hand.
+    """
+    players_hand = [deck.pop(0) for i in range(num_cards)]
+    return players_hand
+
+def can_play_card(selected_card, top_of_discard):
+    """Checks if any card in hand can be played given the card on top of the deck.
+ 
+    Args:
+        selected_card (str): the card the player wants to play.
+        top_of_discard (str): the card on top of the discard pile.
+ 
+    Returns:
+        bool: True/ False depending on if the card can be played.
+    """
+    Tcolor, Trank = top_of_discard.split(" ")
+    if "Wild" in selected_card:
+        return True
+    else:
+        Scolor, Srank = selected_card.split(" ")
+        if Scolor == Tcolor:
+            return True
+        elif Srank == Trank:
+            return True
+        else:
+            return False
+
+
 def end_game(hands):
     """Calculates each player's final score.
  
