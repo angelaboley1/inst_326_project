@@ -1,6 +1,19 @@
 
 
+def shuffle_deck(self):
+       """Shuffles the deck of cards.
 
+
+       Side effects:
+           Changes the value of the 'deck' attribute.
+
+
+       Returns:
+           list: a list of the shuffled cards.
+       """
+       random.shuffle(self.deck)
+       return self.deck
+   
 def __repr__(self):
        """Formal representation of the Deck.
 
