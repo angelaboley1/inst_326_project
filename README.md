@@ -14,12 +14,33 @@
 1. Uno rules: 
     - Match and play cards based on number or color
     - Keep drawing until you get a card that you can play
-    - Player who runs out of cards first wins! The players are ranked based on their number of cards at game end – lowest wins.
+    - Player who runs out of cards first wins!
     - Default number of cards dealt to each person is 7
-2. Follow the instructions in the terminal
-    - Choose the card that you want to play based on your hand of cards
-    - If you don’t have a card that you can play, draw a card until you get one you can play
-3. Keep playing until someone runs out of cards!
+    - A reverse card switches the orientation of the order of players
+    - A Draw2 card makes the next player pick up two cards
+    - A Wild Card allows you to change the color of the top card
+        - This will prompt you to select the color. Select the appropriate
+            number value associated with your color
+    - A Wild Draw4 allows you to change the color of the top card and
+        the next player has to draw four cards
+        - This will prompt you to select the color. Select the appropriate
+            number value associated with your color
+    - A Skip card skips the next players turn 
+2. How to play:
+    - The shuffled deck will be printed to ensure the functions are working properly.
+    - Look to see who's turn it is and you will see your hand of cards. 
+    - Play a card or draw. 
+    - If you draw, the card you drew will be printed and added to your hand.
+    - Keep playing until someone runs out of cards!
+3. Follow the instructions in the terminal:
+    - Choose the card that you want to play based on your hand of cards. Choose
+        the appropriate number value associated with the card.
+    - Draw a card if you don't have a card to play or you just want more cards.
+        Just type "draw"!
+4. Winner:
+    - The scores will be printed at the end based on each player's number of 
+        cards in their hand. 
+    - The lowest score wins!
 
 ## Attribution
 | Method/Function | Primary Author | Techniques Demonstrated |
