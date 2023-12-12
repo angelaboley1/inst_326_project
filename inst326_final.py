@@ -133,7 +133,7 @@ def print_ranks(hands):
         place += 1
         print(f"{place}. Player {player[0] + 1} with {player[1]} points")
 
-def draw(shuffled_deck, discards, hands, turn, num_players):
+def draw(shuffled_deck, discards, hands, turn, num_players=2):
     """Draws a card from the deck.
     
     Args:
@@ -350,8 +350,8 @@ def parse_args(arglist):
         namespace: parsed arguments.
     """
     parser = argparse.ArgumentParser(description='Play a game of Uno.')
-    parser.add_argument('num_players', type=int, choices=range(2, 5),
-                        help='Number of players (between 2 and 4)')
+    parser.add_argument('--num_players', type=int, default=2, choices=range(2, 5),
+                        help='Number of players (between 2 and 4, default: 2)')
     parser.add_argument('--num_cards', type=int, default=5,
                             help='Number of cards to deal to each player (default: 5)')
     return parser.parse_args(arglist)
