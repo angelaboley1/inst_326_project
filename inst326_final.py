@@ -284,12 +284,12 @@ def play(turn, hands, discards, direction, shuffled_deck, num_players):
                 else:
                     discards.append((hands[turn]).pop(int(x) -1))
                 
-                print("Uno" if len(hands[turn]) == 1 else "The game continues...")
-                
                 if len(hands[turn]) == 0:
                     print(f"Player {turn + 1} won!")
                     print_ranks(hands)
                     break
+                
+                print("Uno" if len(hands[turn]) == 1 else "The game continues...")
                 
                 if "Skip" not in selected_card:
                     turn = (turn + direction) % num_players
