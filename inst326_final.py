@@ -12,6 +12,8 @@ class Cards:
         
         Side effects:
             Sets the 'colors', 'types', and 'wild' attributes.
+        
+        Primary author: Katy Lamb
         """
         self.colors = ["Red", "Yellow", "Blue", "Green"]
         self.types = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Reverse', 'Draw2', 'Skip']
@@ -25,6 +27,9 @@ class Deck(Cards):
         Side effects:
             Inherits the 'colors', 'types', and 'wild' attributes from the Card class 
                 using super() and sets the 'deck' attribute.
+        
+        Primary author: Katy Lamb
+        Technique: Inheritance
         """
         self.deck = []
         super().__init__()
@@ -37,6 +42,8 @@ class Deck(Cards):
 
         Returns:
             list: the Uno cards.
+        
+        Primary author: Katy Lamb
         """
         for color in self.colors:
             for types in self.types:
@@ -55,6 +62,8 @@ class Deck(Cards):
 
         Returns:
             list: the shuffled cards.
+        
+        Primary author: Erin Keane
         """
         random.shuffle(self.deck)
         return self.deck
@@ -64,6 +73,9 @@ class Deck(Cards):
         
         Returns:
             str: the current Uno cards in the deck.
+        
+        Primary author: Erin Keane
+        Technique: Magic method (__repr__)
         """
         return f"Deck: {self.deck!r}"
 
@@ -76,6 +88,9 @@ def deal(deck, num_cards=7):
      
     Returns:
         list: list of cards in the player's hand.
+    
+    Primary author: My Tran
+    Technique: List comprehension
     """
     players_hand = [deck.pop(0) for i in range(num_cards)]
     return players_hand
@@ -89,6 +104,9 @@ def can_play_card(selected_card, top_of_discard):
  
     Returns:
         bool: True/ False depending on if the card can be played.
+    
+    Primary author: My Tran
+    Technique: Sequence unpacking
     """
     Tcolor, Trank = top_of_discard.split(" ")
     if "Wild" in selected_card:
@@ -112,6 +130,9 @@ def end_game(hands):
     
     Returns:
         list: list of tuples (player number, final score).
+        
+    Primary author: Katy Lamb
+    Technique: Key function with sorted() command
     """
     final_scores = {player:len(hands[player]) for player in hands}
     ranks = sorted(final_scores.items(), key= lambda c: c[1])
@@ -126,6 +147,9 @@ def print_ranks(hands):
     
     Side effects:
         Prints to stdout.
+    
+    Primary author: Erin Keane
+    Techique: f-string
     """
     final_ranks = end_game(hands)
     place = 0
@@ -133,7 +157,7 @@ def print_ranks(hands):
         place += 1
         print(f"{place}. Player {player[0] + 1} with {player[1]} points")
 
-def draw(shuffled_deck, discards, hands, turn, num_players):
+def draw(shuffled_deck, discards, hands, turn, num_players=2):
     """Draws a card from the deck.
     
     Args:
@@ -146,6 +170,9 @@ def draw(shuffled_deck, discards, hands, turn, num_players):
     
     Side effects:
         Prints to stdout.
+    
+    Primary author: Angela Boley
+    Technique: Optional parameter
     """
     print("You now have to draw from the deck.")
     if len(shuffled_deck) == 0:
@@ -181,6 +208,8 @@ def choice(num_cards):
     
     Returns:
         int: the number of the card the player wants to play.
+    
+    Primary author: Angela Boley
     """
     while True:
         card_number = input("What card would you like to play?\n"
@@ -206,6 +235,9 @@ def wildChoice(choices):
         
     Side effects:
         Prints to stdout.
+    
+    Primary author: Angela Boley
+    Technique: Regular expression
     """
     pattern = r"^[1-4]$"
     while True:
@@ -233,6 +265,9 @@ def play(turn, hands, discards, direction, shuffled_deck, num_players):
         
     Side effects:
         Prints to stdout.
+    
+    Primary author: Josie Whittington
+    Technique: Conditional expression
     """
     while True:
         print(f"It's now Player {turn + 1}'s turn!")
@@ -304,6 +339,8 @@ def main(num_players, num_cards):
     
     Side effects:
         Prints to stdout (see play() function).
+    
+    Primary author: Josie Whittington
     """
     while num_players < 2 or num_players > 4:
         num_players = int(input("Invalid. Please enter a number between 2-4. How many players? "))
@@ -348,6 +385,9 @@ def parse_args(arglist):
         
     Returns:
         namespace: parsed arguments.
+    
+    Primary author: Josie Whittington
+    Technique: Instance of ArgumentParser() class
     """
     parser = argparse.ArgumentParser(description='Play a game of Uno.')
     parser.add_argument('num_players', type=int, choices=range(2, 5),
