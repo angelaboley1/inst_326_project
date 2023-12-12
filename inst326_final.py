@@ -350,8 +350,10 @@ def parse_args(arglist):
         namespace: parsed arguments.
     """
     parser = argparse.ArgumentParser(description='Play a game of Uno.')
+    parser.add_argument('num_players', type=int, choices=range(2, 5),
+                        help='Number of players (between 2 and 4)')
     parser.add_argument('--num_cards', type=int, default=5,
-                        help='Number of cards to deal to each player (default: 5)')
+                            help='Number of cards to deal to each player (default: 5)')
     return parser.parse_args(arglist)
 
 if __name__ == "__main__":
