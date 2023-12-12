@@ -235,66 +235,66 @@ def play(turn, hands, discards, direction, shuffled_deck, num_players):
         Prints to stdout.
     """
     while True:
-        if len(hands[turn]) == 0:
-            print(f"Player {turn + 1} won!")
-            print_ranks(hands)
-            break
+        print(f"It's now Player {turn + 1}'s turn!")
+        print(f"These are your cards:")
+        i = 1
+        for card in hands[turn]:
+            print(f"{i}. {card}")
+            i += 1
+        print("\n")
+        print(f"Top Card: {discards[-1]}")
+        
+        x = choice(len(hands[turn]))
+        if x == "draw":
+            draw(shuffled_deck,discards,hands,turn,num_players)
         else:
-            print(f"It's now Player {turn + 1}'s turn!")
-            print(f"These are your cards:")
-            i = 1
-            for card in hands[turn]:
-                print(f"{i}. {card}")
-                i += 1
-            print("\n")
-            print(f"Top Card: {discards[-1]}")
-         
-            x = choice(len(hands[turn]))
-            if x == "draw":
-                draw(shuffled_deck,discards,hands,turn,num_players)
-            else:
-                selected_card = (hands[turn])[x-1]
-                print(selected_card)
-                if can_play_card(selected_card, discards[-1]) is True:
-                    if "Reverse" in selected_card:
-                        direction *= -1
-                        discards.append((hands[turn]).pop(int(x) -1))
-                    elif "Skip" in selected_card:
-                        discards.append((hands[turn]).pop(int(x) -1))
-                        turn = (turn + 2*direction) % num_players
-                    elif "Draw2" in selected_card:
-                        next_player = (turn + direction) % num_players
-                        for _ in range(2):
-                            draw(shuffled_deck, discards, hands, next_player, num_players)
-                        discards.append((hands[turn]).pop(int(x) -1))
-                    elif "Wild Card" in selected_card:
-                        colors = {1:"Blue Wild", 2:"Red Wild", 3:"Green Wild", 4:"Yellow Wild"}
-                        for i in colors:
-                            print(f"{i}. {colors[i]}")
-                            i += 1
-                        t= wildChoice(colors)
-                        (hands[turn]).pop(int(x) -1)
-                        discards.append(colors[int(t)])
-                    elif "Wild Draw4" in selected_card:
-                        colors = {1:"Blue Wild", 2:"Red Wild", 3:"Green Wild", 4:"Yellow Wild"}
-                        for i in colors:
-                            print(f"{i}. {colors[i]}")
-                            i += 1
-                        t = wildChoice(colors)
-                        (hands[turn]).pop(int(x) -1)
-                        discards.append(colors[int(t)])
-                        next_player = (turn + direction) % num_players
-                        for _ in range(4):
-                            draw(shuffled_deck, discards, hands, next_player, num_players)
-                    else:
-                        discards.append((hands[turn]).pop(int(x) -1))
-                 
-                    print("Uno" if len(hands[turn]) == 1 else "The game continues...")
-                        
-                    if "Skip" not in selected_card:
-                        turn = (turn + direction) % num_players
+            selected_card = (hands[turn])[x-1]
+            print(selected_card)
+            if can_play_card(selected_card, discards[-1]) is True:
+                if "Reverse" in selected_card:
+                    direction *= -1
+                    discards.append((hands[turn]).pop(int(x) -1))
+                elif "Skip" in selected_card:
+                    discards.append((hands[turn]).pop(int(x) -1))
+                    turn = (turn + 2*direction) % num_players
+                elif "Draw2" in selected_card:
+                    next_player = (turn + direction) % num_players
+                    for _ in range(2):
+                        draw(shuffled_deck, discards, hands, next_player, num_players)
+                    discards.append((hands[turn]).pop(int(x) -1))
+                elif "Wild Card" in selected_card:
+                    colors = {1:"Blue Wild", 2:"Red Wild", 3:"Green Wild", 4:"Yellow Wild"}
+                    for i in colors:
+                        print(f"{i}. {colors[i]}")
+                        i += 1
+                    t= wildChoice(colors)
+                    (hands[turn]).pop(int(x) -1)
+                    discards.append(colors[int(t)])
+                elif "Wild Draw4" in selected_card:
+                    colors = {1:"Blue Wild", 2:"Red Wild", 3:"Green Wild", 4:"Yellow Wild"}
+                    for i in colors:
+                        print(f"{i}. {colors[i]}")
+                        i += 1
+                    t = wildChoice(colors)
+                    (hands[turn]).pop(int(x) -1)
+                    discards.append(colors[int(t)])
+                    next_player = (turn + direction) % num_players
+                    for _ in range(4):
+                        draw(shuffled_deck, discards, hands, next_player, num_players)
                 else:
-                    print("You can't play that card. Please pick another card or draw.")
+                    discards.append((hands[turn]).pop(int(x) -1))
+                
+                print("Uno" if len(hands[turn]) == 1 else "The game continues...")
+                
+                if len(hands[turn]) == 0:
+                    print(f"Player {turn + 1} won!")
+                    print_ranks(hands)
+                    break
+                
+                if "Skip" not in selected_card:
+                    turn = (turn + direction) % num_players
+            else:
+                print("You can't play that card. Please pick another card or draw.")
   
 def main(num_players, num_cards):
     """Runs the Uno game.
