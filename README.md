@@ -15,7 +15,8 @@
 
 ## Instructions on how to use the program and interpret the output of the program:
 1. Uno rules: 
-    - Match and play cards based on number or color
+    - Match and play cards based on number, color, or special card such as
+        Reverse matches to another Reverse
     - Keep drawing until you get a card that you can play
     - Player who runs out of cards first wins!
     - Default number of cards dealt to each person is 7
